@@ -39,14 +39,27 @@ class BetterLinkedList:
         node.next = Node(elem)
         node = node.next
 
-   def _print_(self):
+   def __iter__(self):
     node = self.head
-    nodes = []
     while node != None:
-        nodes.append(node.data)
+        yield node
         node = node.next
-        
-    return '->'.join(nodes)
+    
+   def add_first(self, node):
+     #insert node at the beginning
+      node.next = self.head
+      self.head = node
+  
+   def add_last(self, node):
+       temp = self.head
+       if not self.head:
+         self.head = node
+         return
+       while temp.next != None:
+         temp = temp.next
+       
+       temp.next  = node
+       
       
   
 class Node:

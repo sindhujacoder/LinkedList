@@ -14,9 +14,15 @@ new_node.next  = new_node_1
 print(llist._print_())
 
 bllist = BetterLinkedList(['0', '1', '2'])
-print(bllist._print_())
+for node in bllist:
+  print(node.data)
 
+bllist.add_first(Node('-1'))
+bllist.add_first(Node('-2'))
+bllist.add_last(Node('3'))
 
+for node in bllist:
+  print(node.data)
 
 
   
