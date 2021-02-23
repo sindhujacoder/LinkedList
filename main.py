@@ -13,16 +13,20 @@ new_node.next  = new_node_1
 
 print(llist._print_())
 
-bllist = BetterLinkedList(['0', '1', '2'])
-for node in bllist:
-  print(node.data)
+bllist = BetterLinkedList(['0', '1', '2', '4'])
 
 bllist.add_first(Node('-1'))
 bllist.add_first(Node('-2'))
-bllist.add_last(Node('3'))
+bllist.add_last(Node('5'))
 
+bllist.add_after('2', '3')
+bllist.add_after('5', '6')
+#Uses __iter__ function
 for node in bllist:
   print(node.data)
+bllist.add_after('20', '6')
+
+
 
 
   

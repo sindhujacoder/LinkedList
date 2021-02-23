@@ -59,7 +59,23 @@ class BetterLinkedList:
          temp = temp.next
        
        temp.next  = node
-       
+
+   def add_after(self, node_data, value):
+      if not self.head:
+        raise Exception("Empty list")
+
+      new_node = Node(value)
+      temp = self.head
+
+      while(temp.data != node_data and temp.next !=None):
+        temp = temp.next
+
+      if temp.data != node_data:
+          raise Exception("No node with data")
+
+      new_node.next = temp.next
+      temp.next = new_node
+
       
   
 class Node:
