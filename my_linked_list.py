@@ -67,7 +67,7 @@ class BetterLinkedList:
       new_node = Node(value)
       temp = self.head
 
-      while(temp.data != node_data and temp.next !=None):
+      while(temp.data != node_data and temp.next != None):
         temp = temp.next
 
       if temp.data != node_data:
@@ -76,8 +76,29 @@ class BetterLinkedList:
       new_node.next = temp.next
       temp.next = new_node
 
+   def add_before(self, node_data, value):
+      if not self.head:
+        raise Exception("Empty list")
       
+      new_node = Node(value)
+
+      if self.head.data == node_data:
+        return self.add_first(new_node)
+
+      prev_node = self.head
+
+      for node in self:
+          if node.data == node_data:
+              prev_node.next = new_node
+              new_node.next = node
+              return 
+          
+          prev_node = node
+      
+
   
+      raise Exception("No node with data")
+
 class Node:
   def __init__(self, data):
     self.data = data
