@@ -50,6 +50,15 @@ class BetterLinkedList:
       node.next = self.head
       self.head = node
   
+   def _print_(self):
+    node = self.head
+    nodes = []
+    for node in self:
+        nodes.append(node.data)
+        node = node.next
+        
+    print('->'.join(nodes))
+
    def add_last(self, node):
        temp = self.head
        if not self.head:
@@ -118,6 +127,18 @@ class BetterLinkedList:
           previous = current
           current = next
       self.head = previous
+
+   def delete_duplicates_for_sorted_list(self):
+       temp = self.head.next
+       prev = self.head
+       while(temp != None):
+           if prev and temp.data == prev.data:
+               prev.next = temp.next
+               temp = prev.next
+           else:
+               prev = temp
+               temp = temp.next
+
 
 class Node:
   def __init__(self, data):

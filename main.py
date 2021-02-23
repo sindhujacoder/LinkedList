@@ -1,5 +1,5 @@
 from my_linked_list import LinkedList, Node, BetterLinkedList
-
+from my_circular_linked_list import CircularLinkedList
 
 llist = LinkedList()
 head = Node('0')
@@ -11,7 +11,7 @@ head.next = new_node
 new_node_1 = Node('2')
 new_node.next  = new_node_1
 
-print(llist._print_())
+llist._print_()
 
 bllist = BetterLinkedList(['0', '1', '2', '4', '5'])
 
@@ -38,13 +38,33 @@ bllist.remove_node('5')
 #add after a non existent node
 #bllist.add_after('20', '6')
 
-for node in bllist:
-  print(node.data)
+bllist._print_()
 
 print('Reverse list')
 bllist.reverse_linked_list()
-for node in bllist:
-  print(node.data)
+bllist._print_()
+
+print('Remove duplicates from sorted list')
+sorted_list = BetterLinkedList(['0', '1', '1', '1', '2', '2', '2', '4', '5', '5', '6'])
+sorted_list.delete_duplicates_for_sorted_list()
+sorted_list._print_()
+
+
+clist = CircularLinkedList()
+head = Node('0')
+clist.head = head
+
+new_node = Node('1')
+head.next = new_node
+
+new_node_1 = Node('2')
+new_node.next  = new_node_1
+
+new_node_1.next = head
+
+print("Circular Linked list")
+clist._print_(new_node_1)
+
 
 
 
