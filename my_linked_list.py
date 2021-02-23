@@ -108,6 +108,16 @@ class BetterLinkedList:
 
       prev_node.next = temp.next;
       temp.next = None
+  
+   def reverse_linked_list(self):
+      current = self.head
+      previous = None
+      while(current):
+          next = current.next
+          current.next = previous
+          previous = current
+          current = next
+      self.head = previous
 
 class Node:
   def __init__(self, data):
