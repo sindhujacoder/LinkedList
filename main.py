@@ -24,11 +24,10 @@ bllist.add_last(Node('7'))
 bllist.add_after('2', '3')
 
 #Uses __iter__ function
-for node in bllist:
-  print(node.data)
 
 bllist.add_before('1', '-3')
 bllist.add_before('-2', '-1.5')
+bllist.remove_node('5')
 #add after a non existent node
 #bllist.add_after('20', '6')
 

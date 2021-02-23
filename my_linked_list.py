@@ -71,7 +71,7 @@ class BetterLinkedList:
         temp = temp.next
 
       if temp.data != node_data:
-          raise Exception("No node with data")
+          raise Exception("No match found")
 
       new_node.next = temp.next
       temp.next = new_node
@@ -92,12 +92,22 @@ class BetterLinkedList:
               prev_node.next = new_node
               new_node.next = node
               return 
-          
+        
           prev_node = node
-      
-
   
-      raise Exception("No node with data")
+      raise Exception("No match found")
+
+   def remove_node(self, node_data):
+      temp = self.head
+      while(temp.data != node_data):
+          prev_node = temp  
+          temp = temp.next
+      
+      if temp.data != node_data:
+        raise Exception("No match found")
+
+      prev_node.next = temp.next;
+      temp.next = None
 
 class Node:
   def __init__(self, data):
