@@ -129,8 +129,8 @@ class BetterLinkedList:
       self.head = previous
 
    def delete_duplicates_for_sorted_list(self):
-       temp = self.head.next
-       prev = self.head
+       temp = self.head
+       prev = None
        while(temp != None):
            if prev and temp.data == prev.data:
                prev.next = temp.next
@@ -138,7 +138,39 @@ class BetterLinkedList:
            else:
                prev = temp
                temp = temp.next
+   
+   def delete_duplicates_for_unsorted_list(self):
+       #O(n) time, o(n) space
+       #using buffer
+       #or sort using merge sort and call delete_duplicates_for_sorted_list - o(nlogn)
+       #or use two pointers - outer loop/inner loop
+       temp = self.head
+       prev = None
+       buffer = []
+       while(temp != None):
+          if temp.data in buffer:
+              prev.next = temp.next
+              temp =  prev.next
+          else:
+              buffer.append(temp.data)
+              prev = temp
+              temp = temp.next
+   
+   def delete_duplicates_for_unsorted_list_without_buffer(self):
+     #O(n^2) time
+      one_runner = self.head
+      
+      while(one_runner != None):
+        two_runner = one_runner
 
+        while(two_runner.next != None):
+          if one_runner.data == two_runner.next.data:
+              two_runner.next = two_runner.next.next
+          else:
+              two_runner = two_runner.next
+        
+        one_runner = one_runner.next
+    
 
 class Node:
   def __init__(self, data):

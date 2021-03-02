@@ -49,6 +49,14 @@ sorted_list = BetterLinkedList(['0', '1', '1', '1', '2', '2', '2', '4', '5', '5'
 sorted_list.delete_duplicates_for_sorted_list()
 sorted_list._print_()
 
+print('Remove duplicates from unsorted list')
+unsorted_list = BetterLinkedList(['2', '11', '8', '4', '10', '2', '6', '10', '8', '11', '11'])
+unsorted_list.delete_duplicates_for_unsorted_list()
+unsorted_list._print_()
+
+print('Remove duplicates from unsorted list without buffer')
+unsorted_list.delete_duplicates_for_unsorted_list_without_buffer()
+unsorted_list._print_()
 
 clist = CircularLinkedList()
 head = Node('0')
