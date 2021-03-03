@@ -58,6 +58,13 @@ print('Remove duplicates from unsorted list without buffer')
 unsorted_list.delete_duplicates_for_unsorted_list_without_buffer()
 unsorted_list._print_()
 
+print('Get 3rd element to last')
+data = unsorted_list.get_kth_to_last_element(3)
+print(data)
+
+print('Detect if cycle exists')
+unsorted_list.detect_cycle()
+
 clist = CircularLinkedList()
 head = Node('0')
 clist.head = head

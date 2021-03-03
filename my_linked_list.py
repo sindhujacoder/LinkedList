@@ -161,16 +161,48 @@ class BetterLinkedList:
       one_runner = self.head
       
       while(one_runner != None):
-        two_runner = one_runner
+          two_runner = one_runner
 
-        while(two_runner.next != None):
-          if one_runner.data == two_runner.next.data:
-              two_runner.next = two_runner.next.next
-          else:
-              two_runner = two_runner.next
+          while(two_runner.next != None):
+              if one_runner.data == two_runner.next.data:
+                  two_runner.next = two_runner.next.next
+              else:
+                  two_runner = two_runner.next
         
-        one_runner = one_runner.next
-    
+          one_runner = one_runner.next
+
+   def get_kth_to_last_element(self, k):
+      one_runner = self.head
+      two_runner = self.head
+
+      count = 0
+      while(count<k-1):
+          two_runner = two_runner.next
+          count += 1
+
+      while(two_runner != None):
+          data = one_runner.data
+          one_runner = one_runner.next
+          two_runner = two_runner.next
+      
+      return data
+   
+   def detect_cycle(self):
+      slow = self.head
+      fast = self.head
+
+      while(fast != None):
+          if slow == fast.next:
+            print('Cycle exists')
+            return
+          else:
+            slow = slow.next
+            fast = fast.next.next
+      print('No cycle found')
+
+
+
+
 
 class Node:
   def __init__(self, data):
